@@ -89,10 +89,15 @@ do-expand-abbrevs() {
     fi
   done
   
-  # Expand ZSH aliases
+  # Expand aliases if they're the first thing on the line.
+  #
   # https://github.com/rothgar/mastering-zsh/blob/master/docs/helpers/abbrevs.md#automatically-expand-aliases
-  zle _expand_alias
-  zle expand-word
+  #
+  # _expand_alias is from compinit
+  if [[ "${#words}" == 1 ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
 }
 
 expand-abbrevs() {
