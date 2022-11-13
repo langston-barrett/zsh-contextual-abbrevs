@@ -43,22 +43,29 @@ def extract(prog, s):
     for line in s.splitlines():
                 
         # Subcommands
-        if line.startswith("  "):
-            line = line[len("  "):]
-            words = line.split()
-            if len(words) <= 1:
-                continue
-            if words[0][0] != "-":
-                if words[1][0].isupper():
-                    if words[0] in prog:
-                        # recursion!
-                        return ([], [], [])
-                    if not words[0].isalnum():
-                        continue
-                    if words[0][0].isupper():
-                        continue
-                    subcommands += [Subcommand(words[0])]
+        if not line.startswith("  "):
+            continue
+        
+        # Often, they start with >2 spaces, then the name of the subcommand
+        line = line.lstrip()
+        words = line.split()
+        if len(words) <= 1:
+            continue
+        if words[0][0] != "-":
+            # The description comes immediately after, or, in the case of
+            # cargo aliases, just after the alias. The description usually
+            # starts with a capital.
+            if words[1][0].isupper() or (len(words) > 2 and words[2][0].isupper()):
+                sub = words[0].replace(",", "")
+                if sub in prog:
+                    # recursion!
                     continue
+                if not sub.isalnum():
+                    continue
+                if sub[0].isupper():
+                    continue
+                subcommands += [Subcommand(sub)]
+                continue
     
         if "--" not in line:
             continue
