@@ -55,4 +55,12 @@ You can generate abbreviations from help text using
 ./scripts/extract-abbrevs.py git
 ```
 
+## Comparison to Other Tools
+
+Contextual abbreviations work like [globalias][glob] or [zsh-abbr][abbr],
+except that they are *contextual* - `a` expands differently when it comes after
+*`git` vs. `docker`.
+
 [#1]: https://github.com/langston-barrett/zsh-contextual-abbrevs/issues/1
+[abbr]: https://github.com/olets/zsh-abbr
+[glob]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/globalias
