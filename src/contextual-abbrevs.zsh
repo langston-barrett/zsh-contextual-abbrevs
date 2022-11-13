@@ -107,7 +107,7 @@ expand-abbrevs() {
 }
 
 expand-abbrevs-space() {
-  if [[ "${BUFFER% }" == "${BUFFER}" ]]; then
+  if [[ "${BUFFER% }" == "${BUFFER}" ]] || [[ "${CURSOR}" != "${#BUFFER}" ]]; then
     expand-abbrevs
     zle self-insert
   else
