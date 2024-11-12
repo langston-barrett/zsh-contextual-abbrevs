@@ -33,7 +33,7 @@ source ~/somewhere/src/contextual-abbrevs.zsh
 
 ### With a Plugin Manager
 
-TODO([#1][#1]): PRs welcome :-)
+You can install zsh-contextual-abbrevs with a zsh plugin manager, including those built into frameworks such as Oh-My-Zsh (OMZ) and prezto. Each has their own way of doing things. Read your package manager's documentation or the [zsh plugin manager plugin installation procedures gist](https://gist.github.com/olets/06009589d7887617e061481e22cf5a4a).
 
 ## Configuration
 
