@@ -57,9 +57,9 @@ You can generate abbreviations from help text using
 
 ## Comparison to Other Tools
 
-Contextual abbreviations work like [globalias][glob] or [zsh-abbr][abbr],
-except that they are *contextual* - `a` expands differently when it comes after
-*`git` vs. `docker`.
+Contextual abbreviations work like [globalias][glob]
+except that they are *contextual* (`a` expands differently when it comes after
+*`git` vs. `docker`), and like [zsh-abbr][abbr] but without having to manually configure permutations and with support for interleaving other text (defining `git restore`'s `s` and `p` confers support for `git restore s p`, `git restore p s`, `git restore --quiet s p`, `git restore s --quiet p`, etc.).
 
 [#1]: https://github.com/langston-barrett/zsh-contextual-abbrevs/issues/1
 [abbr]: https://github.com/olets/zsh-abbr
